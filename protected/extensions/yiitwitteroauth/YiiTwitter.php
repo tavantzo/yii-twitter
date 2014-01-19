@@ -16,7 +16,7 @@ class YiiTwitter extends CApplicationComponent
 	public $loadOauth = true;
 
 	//Have we loaded our dependencies
-	public $registeredScripts = false;
+	private static $registeredScripts = false;
 
 	private $_instance = null;
 
@@ -55,13 +55,11 @@ class YiiTwitter extends CApplicationComponent
     * Registers twitteroauth.php & OAuth.php
     */
     public function registerScripts() {
-    	if (!$this->registeredScripts)
-            return;
-
-        if($this->loadOauth)
+    	if (self::$registeredScripts) return;
+    	self::$registeredScripts = true;
+		if($this->loadOauth)
 			require dirname(__FILE__).'/OAuth.php';
-
-        require dirname(__FILE__).'/twitteroauth.php';
+		require dirname(__FILE__).'/twitteroauth.php';
 	}
 
 }

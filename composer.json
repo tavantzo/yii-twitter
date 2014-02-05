@@ -1,8 +1,5 @@
 {
   "name": "codejunk/yii-twitter",
-  "autoload": {
-    "files": ["protected/extensions/yiitwitteroauth/YiiTwitter.php"]
-  },
   "replace": {
     "willwharton/yii-twitter": "*"
   }
